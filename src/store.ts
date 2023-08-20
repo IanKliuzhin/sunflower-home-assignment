@@ -1,6 +1,6 @@
 import { StateCreator, create } from 'zustand';
 import { fetchCities } from 'api/fetchCities';
-import { CitiesStoreSlice, City, Continent } from 'modules/Cities/types';
+import { CitiesStoreSlice, City } from 'modules/Cities/types';
 import {
   FilterKind,
   FilteringStoreSlice,
@@ -15,12 +15,12 @@ export const createFilteringSlice: StateCreator<
   FilteringStoreSlice
 > = (set) => ({
   searchQuery: '',
-  filters: [{ kind: FilterKind.CONTINENT, value: null }],
+  filters: [{ kind: FilterKind.CONTINENT, value: '' }],
   sorting: SortingKind.NAME,
   tempScale: TempScaleKind.CELSIUS,
 
   updateSearchQuery: (query) => set(() => ({ searchQuery: query })),
-  updateFilter: (kind: FilterKind, value: Continent | null) =>
+  updateFilter: (kind: FilterKind, value: string) =>
     set((state) => ({
       ...state,
       filters: state.filters.map((f) =>

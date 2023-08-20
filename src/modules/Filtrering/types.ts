@@ -1,12 +1,10 @@
-import { Continent } from 'modules/Cities/types';
-
 export enum FilterKind {
   CONTINENT = 'continent',
 }
 
 type ContinentFilter = {
   kind: FilterKind.CONTINENT;
-  value: Continent | null;
+  value: string;
 };
 
 // May become discriminating union
@@ -29,8 +27,8 @@ export interface FilteringStoreSlice {
   tempScale: TempScaleKind;
 
   updateSearchQuery: (query: string) => void;
-  // TODO: typify value properly
-  updateFilter: (kind: FilterKind, value: Continent | null) => void;
+  // TODO: typify value properly if possible
+  updateFilter: (kind: FilterKind, value: string) => void;
   updateSorting: (kind: SortingKind) => void;
   updateTempScale: (kind: TempScaleKind) => void;
 }
