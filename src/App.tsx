@@ -1,3 +1,4 @@
+import { Filtering } from 'modules/Filtrering';
 import { useBoundStore } from 'store';
 import { CitiesList } from './modules/Cities';
 import 'App.scss';
@@ -8,6 +9,7 @@ export const App = () => {
   useBoundStore();
   return (
     <div className="App">
+      <Filtering />
       <CitiesList />
     </div>
   );
