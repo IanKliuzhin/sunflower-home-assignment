@@ -1,5 +1,5 @@
 import { CitiesList } from './components/CitiesList';
-import { useCitiesStore } from './store';
+import { createCitiesSlice } from './store';
 
 export { CitiesList };
-export { useCitiesStore };
+export { createCitiesSlice };

@@ -45,8 +45,8 @@ export type City = {
   };
 };
 
-export type CitiesStoreType = {
+export interface CitiesStoreSlice {
   citiesList: City[];
   setCities: (list: City[]) => void;
   fetchCities: () => void;
-};
+}

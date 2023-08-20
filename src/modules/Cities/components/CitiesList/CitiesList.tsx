@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
-import { useCitiesStore } from 'modules/Cities';
+import { useBoundStore } from 'store';
 import { CityPreview } from '../CityPreview';
 import classes from './CitiesList.module.scss';
 
 export const CitiesList = () => {
-  const { citiesList, fetchCities } = useCitiesStore();
+  const citiesList = useBoundStore((state) => state.citiesList);
+  const fetchCities = useBoundStore((state) => state.fetchCities);
+
   useEffect(() => {
     fetchCities();
   }, [fetchCities]);

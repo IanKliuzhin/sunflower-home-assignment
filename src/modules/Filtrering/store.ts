@@ -1,13 +1,18 @@
-import { create } from 'zustand';
-import { Continent } from 'modules/Cities/types';
+import { StateCreator } from 'zustand';
+import { CitiesStoreSlice, Continent } from 'modules/Cities/types';
 import {
   FilterKind,
-  FiltratonStoreType,
+  FilteringStoreSlice,
   SortingKind,
   TempScaleKind,
 } from './types';
 
-export const useFilteringStore = create<FiltratonStoreType>((set) => ({
+export const createFilteringSlice: StateCreator<
+  CitiesStoreSlice & FilteringStoreSlice,
+  [],
+  [],
+  FilteringStoreSlice
+> = (set) => ({
   searchQuery: '',
   filters: [{ kind: FilterKind.CONTINENT, value: null }],
   sorting: SortingKind.NAME,
@@ -23,4 +28,4 @@ export const useFilteringStore = create<FiltratonStoreType>((set) => ({
     })),
   updateSorting: (kind: SortingKind) => set(() => ({ sorting: kind })),
   updateTempScale: (kind: TempScaleKind) => set(() => ({ tempScale: kind })),
-}));
+});

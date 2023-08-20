@@ -22,7 +22,7 @@ export enum TempScaleKind {
   FAHRENHEIT = 'fahrenheit',
 }
 
-export type FiltratonStoreType = {
+export interface FilteringStoreSlice {
   searchQuery: string;
   filters: Filter[];
   sorting: SortingKind;
@@ -33,4 +33,4 @@ export type FiltratonStoreType = {
   updateFilter: (kind: FilterKind, value: Continent | null) => void;
   updateSorting: (kind: SortingKind) => void;
   updateTempScale: (kind: TempScaleKind) => void;
-};
+}
