@@ -1,9 +1,9 @@
-import { City, Country } from 'modules/Cities/types';
+import { City, Continent, Country } from 'modules/Cities/types';
 
 export const cities: City[] = [
   {
     name: 'Barcelona',
-    continent: 'Europe',
+    continent: Continent.EUROPE,
     active: true,
     country: Country.SPAIN,
     description:
@@ -16,7 +16,7 @@ export const cities: City[] = [
   },
   {
     name: 'Tokyo',
-    continent: 'Asia',
+    continent: Continent.ASIA,
     active: true,
     country: Country.JAPAN,
     description:
@@ -29,7 +29,7 @@ export const cities: City[] = [
   },
   {
     name: 'New York City',
-    continent: 'North America',
+    continent: Continent.NORTH_AMERICA,
     active: true,
     country: Country.UNITED_STATES,
     description:
@@ -42,7 +42,7 @@ export const cities: City[] = [
   },
   {
     name: 'Sydney',
-    continent: 'Australia',
+    continent: Continent.AUSTRALIA,
     active: true,
     country: Country.AUSTRALIA,
     description:
@@ -55,7 +55,7 @@ export const cities: City[] = [
   },
   {
     name: 'Rio de Janeiro',
-    continent: 'South America',
+    continent: Continent.SOUTH_AMERICA,
     active: true,
     country: Country.BRAZIL,
     description:
@@ -68,7 +68,7 @@ export const cities: City[] = [
   },
   {
     name: 'Cairo',
-    continent: 'Africa',
+    continent: Continent.AFRICA,
     active: true,
     country: Country.EGYPT,
     description:
@@ -81,7 +81,7 @@ export const cities: City[] = [
   },
   {
     name: 'Paris',
-    continent: 'Europe',
+    continent: Continent.EUROPE,
     active: true,
     country: Country.FRANCE,
     description:
@@ -94,7 +94,7 @@ export const cities: City[] = [
   },
   {
     name: 'Buenos Aires',
-    continent: 'South America',
+    continent: Continent.SOUTH_AMERICA,
     active: true,
     country: Country.ARGENTINA,
     description:
@@ -107,7 +107,7 @@ export const cities: City[] = [
   },
   {
     name: 'Rome',
-    continent: 'Europe',
+    continent: Continent.EUROPE,
     active: true,
     country: Country.ITALY,
     description:
@@ -120,7 +120,7 @@ export const cities: City[] = [
   },
   {
     name: 'Toronto',
-    continent: 'North America',
+    continent: Continent.NORTH_AMERICA,
     active: true,
     country: Country.CANADA,
     description:
@@ -133,7 +133,7 @@ export const cities: City[] = [
   },
   {
     name: 'Berlin',
-    continent: 'Europe',
+    continent: Continent.EUROPE,
     active: true,
     country: Country.GERMANY,
     description:
@@ -146,7 +146,7 @@ export const cities: City[] = [
   },
   {
     name: 'Cape Town',
-    continent: 'Africa',
+    continent: Continent.AFRICA,
     active: true,
     country: Country.SOUTH_AFRICA,
     description:
@@ -159,7 +159,7 @@ export const cities: City[] = [
   },
   {
     name: 'Mexico City',
-    continent: 'North America',
+    continent: Continent.NORTH_AMERICA,
     active: true,
     country: Country.MEXICO,
     description:
@@ -172,7 +172,7 @@ export const cities: City[] = [
   },
   {
     name: 'Moscow',
-    continent: 'Europe',
+    continent: Continent.EUROPE,
     active: true,
     country: Country.RUSSIA,
     description:
@@ -185,7 +185,7 @@ export const cities: City[] = [
   },
   {
     name: 'Shanghai',
-    continent: 'Asia',
+    continent: Continent.ASIA,
     active: true,
     country: Country.CHINA,
     description:
@@ -198,7 +198,7 @@ export const cities: City[] = [
   },
   {
     name: 'Mumbai',
-    continent: 'Asia',
+    continent: Continent.ASIA,
     active: true,
     country: Country.INDIA,
     description:
@@ -211,7 +211,7 @@ export const cities: City[] = [
   },
   {
     name: 'Dubai',
-    continent: 'Asia',
+    continent: Continent.ASIA,
     active: true,
     country: Country.UNITED_ARAB_EMIRATES,
     description:
@@ -224,7 +224,7 @@ export const cities: City[] = [
   },
   {
     name: 'London',
-    continent: 'Europe',
+    continent: Continent.EUROPE,
     active: true,
     country: Country.UNITED_KINGDOM,
     description:
@@ -237,7 +237,7 @@ export const cities: City[] = [
   },
   {
     name: 'Amsterdam',
-    continent: 'Europe',
+    continent: Continent.EUROPE,
     active: true,
     country: Country.NETHERLANDS,
     description:
@@ -250,7 +250,7 @@ export const cities: City[] = [
   },
   {
     name: 'Singapore',
-    continent: 'Asia',
+    continent: Continent.ASIA,
     active: true,
     country: Country.SINGAPORE,
     description:
@@ -263,7 +263,7 @@ export const cities: City[] = [
   },
   {
     name: 'Istanbul',
-    continent: 'Asia',
+    continent: Continent.ASIA,
     active: true,
     country: Country.TURKEY,
     description:
@@ -276,7 +276,7 @@ export const cities: City[] = [
   },
   {
     name: 'Rio de Janeiro',
-    continent: 'South America',
+    continent: Continent.SOUTH_AMERICA,
     active: true,
     country: Country.BRAZIL,
     description:
@@ -289,7 +289,7 @@ export const cities: City[] = [
   },
   {
     name: 'Bangkok',
-    continent: 'Asia',
+    continent: Continent.ASIA,
     active: true,
     country: Country.THAILAND,
     description:
@@ -302,7 +302,7 @@ export const cities: City[] = [
   },
   {
     name: 'Vancouver',
-    continent: 'North America',
+    continent: Continent.NORTH_AMERICA,
     active: true,
     country: Country.CANADA,
     description:
