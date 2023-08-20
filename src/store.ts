@@ -1,6 +1,7 @@
 import { StateCreator, create } from 'zustand';
 import { fetchCities } from 'api/fetchCities';
-import { CitiesStoreSlice, City } from 'modules/Cities/types';
+import { getDistanceFromTelAviv } from 'modules/Cities/helpers';
+import { CitiesStoreSlice } from 'modules/Cities/types';
 import {
   FilterKind,
   FilteringStoreSlice,
@@ -39,9 +40,17 @@ export const createCitiesSlice: StateCreator<
   CitiesStoreSlice
 > = (set) => ({
   citiesList: [],
-  setCities: (list: City[]) =>
-    set(() => ({ citiesList: list.filter((c) => c.active) })),
-  fetchCities: () => fetchCities().then((list) => set({ citiesList: list })),
+  fetchCities: () =>
+    fetchCities().then((list) =>
+      set({
+        citiesList: list
+          .filter((c) => c.active)
+          .map((city) => ({
+            ...city,
+            distance: getDistanceFromTelAviv(city.coords.lat, city.coords.lng),
+          })),
+      }),
+    ),
 });
 
 export const useBoundStore = create<CitiesStoreSlice & FilteringStoreSlice>()(

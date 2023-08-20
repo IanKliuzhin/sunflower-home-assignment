@@ -43,10 +43,10 @@ export type City = {
     lat: number;
     lng: number;
   };
+  distance?: number;
 };
 
 export interface CitiesStoreSlice {
   citiesList: City[];
-  setCities: (list: City[]) => void;
   fetchCities: () => void;
 }

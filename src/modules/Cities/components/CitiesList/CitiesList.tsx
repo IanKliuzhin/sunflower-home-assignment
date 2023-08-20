@@ -23,16 +23,20 @@ export const CitiesList = () => {
     [citiesList, filters],
   );
 
-  const sortedCities = useMemo(
-    () =>
-      [...filteredCities].sort((a, b) =>
-        // TODO: implement sorting by distance
-        sorting === SortingKind.NAME
-          ? a.name.toLowerCase().localeCompare(b.name.toLowerCase())
-          : -1,
-      ),
-    [filteredCities, sorting],
-  );
+  const sortedCities = useMemo(() => {
+    switch (sorting) {
+      case SortingKind.NAME:
+        return [...filteredCities].sort((a, b) =>
+          a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
+        );
+      case SortingKind.DISTANCE:
+        return [...filteredCities].sort(
+          (a, b) => (a.distance as number) - (b.distance as number),
+        );
+      default:
+        return filteredCities;
+    }
+  }, [filteredCities, sorting]);
 
   const searchedCities = useMemo(
     () =>
@@ -43,7 +47,7 @@ export const CitiesList = () => {
       ),
     [sortedCities, searchQuery],
   );
-  console.log('searchQuery', searchQuery);
+
   useEffect(() => {
     fetchCities();
   }, [fetchCities]);
