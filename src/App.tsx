@@ -1,12 +1,18 @@
-import { Filtering } from 'modules/Filtrering';
-import { CitiesList } from './modules/Cities';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { MainPage } from 'pages/MainPage';
 import 'App.scss';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainPage />,
+  },
+]);
 
 export const App = () => {
   return (
     <div className="App">
-      <Filtering />
-      <CitiesList />
+      <RouterProvider router={router} />
     </div>
   );
 };
