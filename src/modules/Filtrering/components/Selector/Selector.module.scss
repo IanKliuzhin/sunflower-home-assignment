@@ -1,0 +1,12 @@
+.selector_container {
+  height: 30px;
+
+  .selector_value {
+    cursor: pointer;
+
+    &.chosen {
+      cursor: default;
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,6 +1,8 @@
 import { useBoundStore } from 'store';
 import { Filter } from '../Filter';
 import { Search } from '../Search';
+import { Sorting } from '../Sorting';
+import classes from './Filtering.module.scss';
 
 export const Filtering = () => {
   const { filters, updateFilter } = useBoundStore();
@@ -15,6 +17,9 @@ export const Filtering = () => {
           update={(val) => updateFilter(filter.kind, val)}
         />
       ))}
+      <div className={classes.sort_and_temp}>
+        <Sorting />
+      </div>
     </div>
   );
 };

@@ -11,8 +11,8 @@ type ContinentFilter = {
 type Filter = ContinentFilter;
 
 export enum SortingKind {
-  NAME = 'name',
-  DISTANCE = 'distance',
+  NAME = 'Name',
+  DISTANCE = 'Distance',
 }
 
 export enum TempScaleKind {
