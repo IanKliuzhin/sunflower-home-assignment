@@ -1,9 +1,8 @@
 .city {
   position: relative;
-  width: 242px;
-  height: 242px;
-  padding: 26px;
-  margin-bottom: 14px;
+  width: 170px;
+  height: 170px;
+  padding: 20px;
 
   .city__bg {
     position: absolute;
@@ -15,16 +14,16 @@
 
   .city__name {
     position: relative;
-    font-size: 24px;
+    font-size: 18px;
   }
 
   .city__country {
     position: relative;
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .city__description {
     position: relative;
-    font-size: 16px;
+    font-size: 12px;
   }
 }
