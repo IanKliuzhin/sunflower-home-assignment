@@ -2,13 +2,14 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: sans-serif;
 }
 
 #root {
   display: flex;
   flex-flow: column nowrap;
   width: 100vw;
-  padding: 16px;
+  padding: 10px;
 }
 
 .App {

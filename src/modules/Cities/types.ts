@@ -23,6 +23,15 @@ export enum Country {
   THAILAND = 'Thailand',
 }
 
+export enum Continent {
+  EUROPE = 'Europe',
+  ASIA = 'Asia',
+  NORTH_AMERICA = 'North America',
+  AUSTRALIA = 'Australia',
+  SOUTH_AMERICA = 'South America',
+  AFRICA = 'Africa',
+}
+
 export type City = {
   name: string;
   continent: string;
@@ -34,10 +43,10 @@ export type City = {
     lat: number;
     lng: number;
   };
+  distance?: number;
 };
 
-export type CitiesStoreType = {
+export interface CitiesStoreSlice {
   citiesList: City[];
-  setCities: (list: City[]) => void;
   fetchCities: () => void;
-};
+}
