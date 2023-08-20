@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import cn from 'classnames';
 import classes from './Selector.module.scss';
 
@@ -11,7 +12,7 @@ export const Selector = ({ options, currentValue, onChange }: Props) => {
   return (
     <div className={classes.selector_container}>
       {options.map(({ value, text }, index) => (
-        <>
+        <Fragment key={value}>
           <span
             className={cn(
               classes.selector_value,
@@ -23,7 +24,7 @@ export const Selector = ({ options, currentValue, onChange }: Props) => {
             {text}
           </span>
           {index < options.length - 1 && ' | '}
-        </>
+        </Fragment>
       ))}
     </div>
   );

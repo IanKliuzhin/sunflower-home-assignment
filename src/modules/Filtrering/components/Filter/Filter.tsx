@@ -11,8 +11,8 @@ export const Filter = ({ value, update }: Props) => {
     <div className={classes.filter_container}>
       Continent{' '}
       <Select
-        options={Object.entries(Continent).map(([key, value]) => ({
-          value: key,
+        options={Object.values(Continent).map((value) => ({
+          value,
           name: value,
         }))}
         defaultValue=""

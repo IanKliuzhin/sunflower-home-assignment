@@ -19,7 +19,8 @@ export const createFilteringSlice: StateCreator<
   sorting: SortingKind.NAME,
   tempScale: TempScaleKind.CELSIUS,
 
-  updateSearchQuery: (query) => set(() => ({ searchQuery: query })),
+  updateSearchQuery: (query) =>
+    set(() => ({ searchQuery: query.toLowerCase() })),
   updateFilter: (kind: FilterKind, value: string) =>
     set((state) => ({
       ...state,
@@ -38,7 +39,8 @@ export const createCitiesSlice: StateCreator<
   CitiesStoreSlice
 > = (set) => ({
   citiesList: [],
-  setCities: (list: City[]) => set(() => ({ citiesList: list })),
+  setCities: (list: City[]) =>
+    set(() => ({ citiesList: list.filter((c) => c.active) })),
   fetchCities: () => fetchCities().then((list) => set({ citiesList: list })),
 });
 
