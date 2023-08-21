@@ -1,12 +1,23 @@
-import { Filtering } from 'modules/Filtrering';
-import { CitiesList } from './modules/Cities';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { MainPage } from 'pages/MainPage';
 import 'App.scss';
+import { WeatherPage } from 'pages/WeatherPage';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainPage />,
+  },
+  {
+    path: '/weather/:cityName',
+    element: <WeatherPage />,
+  },
+]);
 
 export const App = () => {
   return (
     <div className="App">
-      <Filtering />
-      <CitiesList />
+      <RouterProvider router={router} />
     </div>
   );
 };

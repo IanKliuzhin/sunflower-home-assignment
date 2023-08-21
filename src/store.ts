@@ -1,17 +1,21 @@
 import { StateCreator, create } from 'zustand';
 import { fetchCities } from 'api/fetchCities';
 import { getDistanceFromTelAviv } from 'modules/Cities/helpers';
-import { CitiesStoreSlice } from 'modules/Cities/types';
+import { CitiesStoreSlice, City } from 'modules/Cities/types';
 import {
   FilterKind,
   FilteringStoreSlice,
   SortingKind,
   TempScaleKind,
 } from 'modules/Filtrering/types';
+import { WeatherStoreSlice } from 'modules/Weather/types';
+import { persist } from 'zustand/middleware';
+
+type StoreType = CitiesStoreSlice & FilteringStoreSlice & WeatherStoreSlice;
 
 export const createFilteringSlice: StateCreator<
-  CitiesStoreSlice & FilteringStoreSlice,
-  [],
+  StoreType,
+  [['zustand/persist', unknown]],
   [],
   FilteringStoreSlice
 > = (set) => ({
@@ -34,7 +38,7 @@ export const createFilteringSlice: StateCreator<
 });
 
 export const createCitiesSlice: StateCreator<
-  CitiesStoreSlice & FilteringStoreSlice,
+  StoreType,
   [],
   [],
   CitiesStoreSlice
@@ -53,9 +57,35 @@ export const createCitiesSlice: StateCreator<
     ),
 });
 
-export const useBoundStore = create<CitiesStoreSlice & FilteringStoreSlice>()(
-  (...a) => ({
-    ...createCitiesSlice(...a),
-    ...createFilteringSlice(...a),
-  }),
+export const createWeatherSlice: StateCreator<
+  StoreType,
+  [],
+  [],
+  WeatherStoreSlice
+> = (set) => ({
+  weatherCityName: '',
+  weatherCoords: null,
+
+  setWeatherCity: (name: City['name'], coords: City['coords']) =>
+    set({ weatherCityName: name, weatherCoords: coords }),
+});
+
+export const useBoundStore = create<StoreType>()(
+  persist(
+    (...a) => ({
+      ...createCitiesSlice(...a),
+      ...createFilteringSlice(...a),
+      ...createWeatherSlice(...a),
+    }),
+    {
+      partialize: (state) => ({
+        searchQuery: state.searchQuery,
+        filters: state.filters,
+        sorting: state.sorting,
+        tempScale: state.tempScale,
+      }),
+      name: 'filters',
+      version: 1,
+    },
+  ),
 );
