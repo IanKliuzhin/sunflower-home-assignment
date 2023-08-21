@@ -13,6 +13,7 @@ export const Search = () => {
         value={searchQuery}
         onChange={(e) => updateSearchQuery(e.target.value)}
         placeholder="Type to search"
+        clear={() => updateSearchQuery('')}
       />
     </div>
   );

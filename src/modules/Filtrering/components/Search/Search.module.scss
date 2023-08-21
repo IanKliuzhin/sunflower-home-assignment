@@ -1,8 +1,15 @@
 .search_container {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  height: 60px;
+  height: 53px;
+
+  @media (width >= 1024px) {
+    width: 332px;
+    height: 60px;
+    margin-top: 0;
+  }
 }

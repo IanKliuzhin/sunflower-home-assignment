@@ -8,7 +8,7 @@ export const Filtering = () => {
   const { filters, updateFilter } = useBoundStore();
 
   return (
-    <div>
+    <div className={classes.filtering}>
       <Search />
       {filters.map((filter) => (
         <Filter

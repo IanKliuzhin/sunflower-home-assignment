@@ -1,6 +1,25 @@
-.sort_and_temp {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  height: 60px;
+.filtering {
+  color: rgb(51 51 51 / 90%);
+  font-size: 13px;
+  line-height: 20px;
+
+  .sort_and_temp {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    height: 50px;
+    margin-top: 20px;
+  }
+
+  @media (width >= 1024px) {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .sort_and_temp {
+      height: 60px;
+      margin-top: 0;
+    }
+  }
 }

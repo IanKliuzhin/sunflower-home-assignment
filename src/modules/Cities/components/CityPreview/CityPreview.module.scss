@@ -3,6 +3,8 @@
   width: 170px;
   height: 170px;
   padding: 20px;
+  border-radius: 6px;
+  color: white;
 
   .city__bg {
     position: absolute;
@@ -10,6 +12,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    border-radius: 6px;
   }
 
   .city__name {
@@ -19,11 +22,19 @@
 
   .city__country {
     position: relative;
+    margin-top: 5px;
     font-size: 15px;
   }
 
   .city__description {
     position: relative;
+    display: -webkit-box;
+    overflow: hidden;
+    height: 70px;
+    margin-top: 15px;
     font-size: 12px;
+    white-space: pre-wrap;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
   }
 }

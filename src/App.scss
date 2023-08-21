@@ -2,7 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 #root {
@@ -10,6 +10,10 @@
   flex-flow: column nowrap;
   width: 100vw;
   padding: 10px;
+
+  @media (width >= 1024px) {
+    padding: 30px 25px;
+  }
 }
 
 .App {
@@ -20,4 +24,15 @@
   .page {
     width: 100%;
   }
+}
+
+a {
+  all: unset;
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  src: url('./fonts/Roboto-Regular.ttf') format('truetype');
 }
