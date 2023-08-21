@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { City } from 'modules/Cities/types';
+import { useBoundStore } from 'store';
 import classes from './CityPreview.module.scss';
 
 export const CityPreview = ({
@@ -9,10 +10,11 @@ export const CityPreview = ({
   image,
   coords,
 }: City) => {
+  const setWeatherCity = useBoundStore((state) => state.setWeatherCity);
   return (
     <NavLink
       to={`/weather/${name.replace(' ', '_')}`}
-      state={{ city: { name, coords } }}
+      onClick={() => setWeatherCity(name, coords)}
     >
       <div className={classes.city}>
         <img className={classes.city__bg} src={image.href} />

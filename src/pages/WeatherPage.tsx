@@ -1,28 +1,39 @@
-import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { City } from 'modules/Cities/types';
+import { useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { useBoundStore } from 'store';
 
 export const WeatherPage = () => {
   const {
-    state: { city },
-  } = useLocation();
+    weatherCityName,
+    weatherCoords,
+    citiesList,
+    fetchCities,
+    setWeatherCity,
+  } = useBoundStore();
+  const { cityName: cityNameFromURL } = useParams();
 
-  const [coords, setCoords] = useState<City['coords'] | null>(null);
-  const [name, setName] = useState('');
   useEffect(() => {
-    if (city) {
-      setCoords(city.coords);
-      setName(city.name);
+    if (!citiesList.length) fetchCities();
+  }, [citiesList, fetchCities]);
+
+  useEffect(() => {
+    if (!weatherCoords && cityNameFromURL && citiesList.length) {
+      const matchedCity = citiesList.find(
+        (city) =>
+          city.name.toLowerCase().replace(' ', '_') ===
+          cityNameFromURL.toLocaleLowerCase(),
+      );
+      if (matchedCity) setWeatherCity(matchedCity.name, matchedCity.coords);
     }
-  }, [city]);
+  }, [weatherCoords, cityNameFromURL, citiesList, setWeatherCity]);
 
   return (
     <div>
       <Link to="/">Back</Link>
-      {name && (
+      {weatherCityName && (
         <>
-          <div>{name}</div>
-          <div>{`${coords?.lat}, ${coords?.lng}`}</div>
+          <div>{weatherCityName}</div>
+          <div>{`${weatherCoords?.lat}, ${weatherCoords?.lng}`}</div>
         </>
       )}
     </div>
