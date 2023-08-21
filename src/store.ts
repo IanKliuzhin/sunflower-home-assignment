@@ -9,12 +9,13 @@ import {
   TempScaleKind,
 } from 'modules/Filtrering/types';
 import { WeatherStoreSlice } from 'modules/Weather/types';
+import { persist } from 'zustand/middleware';
 
 type StoreType = CitiesStoreSlice & FilteringStoreSlice & WeatherStoreSlice;
 
 export const createFilteringSlice: StateCreator<
   StoreType,
-  [],
+  [['zustand/persist', unknown]],
   [],
   FilteringStoreSlice
 > = (set) => ({
@@ -69,8 +70,22 @@ export const createWeatherSlice: StateCreator<
     set({ weatherCityName: name, weatherCoords: coords }),
 });
 
-export const useBoundStore = create<StoreType>()((...a) => ({
-  ...createCitiesSlice(...a),
-  ...createFilteringSlice(...a),
-  ...createWeatherSlice(...a),
-}));
+export const useBoundStore = create<StoreType>()(
+  persist(
+    (...a) => ({
+      ...createCitiesSlice(...a),
+      ...createFilteringSlice(...a),
+      ...createWeatherSlice(...a),
+    }),
+    {
+      partialize: (state) => ({
+        searchQuery: state.searchQuery,
+        filters: state.filters,
+        sorting: state.sorting,
+        tempScale: state.tempScale,
+      }),
+      name: 'filters',
+      version: 1,
+    },
+  ),
+);
