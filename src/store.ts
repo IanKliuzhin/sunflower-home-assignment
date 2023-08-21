@@ -68,6 +68,8 @@ export const createWeatherSlice: StateCreator<
 
   setWeatherCity: (name: City['name'], coords: City['coords']) =>
     set({ weatherCityName: name, weatherCoords: coords }),
+  setCurrentWeather: (weather) => set({ currentWeather: weather }),
+  setForecast: (forecast) => set({ forecast }),
 });
 
 export const useBoundStore = create<StoreType>()(
