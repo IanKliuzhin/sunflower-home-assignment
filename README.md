@@ -1,5 +1,10 @@
 # Yan Klyuzhin's Home Assignment
 
+The project based on Zustand state manager, which was an experiment for me. I wanted to show, that I can sucessfully learn and apply new technologies.
+Well, looks, like everything works as supposed, but I didn't like it. I think, Zustand has much to update.
+
+However, I implemented the feature of saving filters state in local storage, which allows to restore it not only after returning from Weather pages, but also after reloading page. And that's the merit of Zustand.
+
 ## Available Scripts
 
 In the project directory, you can run:
