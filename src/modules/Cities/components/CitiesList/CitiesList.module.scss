@@ -3,6 +3,11 @@
   grid-template-columns: repeat(auto-fill, 170px);
   grid-gap: 10px;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
+  margin-top: 15px;
+
+  @media (width >= 1024px) {
+    margin-top: 35px;
+  }
 }
