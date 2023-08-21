@@ -1,4 +1,5 @@
-import { TempScaleKind } from 'modules/Filtrering/types';
+import { tempUnitsMap } from 'modules/Filtrering/components/helpers';
+import { useBoundStore } from 'store';
 import { Weather } from '../types';
 
 export const WeatherDetails = ({
@@ -8,12 +9,14 @@ export const WeatherDetails = ({
   humidity,
   clouds,
 }: Weather) => {
+  const tempScale = useBoundStore((state) => state.tempScale);
+
   return (
     <div>
       <img src={condition.icon} alt={condition.text} width={50} height={50} />
       {condition.text}
       <br />
-      Temperature: {temp[TempScaleKind.CELSIUS]}
+      Temperature: {temp[tempScale]} {tempUnitsMap[tempScale]}
       <br />
       Wind: {wind.direction} {wind.kph}kph ({wind.mph}mph)
       <br />

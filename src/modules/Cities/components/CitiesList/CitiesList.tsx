@@ -8,6 +8,10 @@ export const CitiesList = () => {
   const { citiesList, fetchCities, searchQuery, filters, sorting } =
     useBoundStore();
 
+  useEffect(() => {
+    if (!citiesList.length) fetchCities();
+  }, [citiesList, fetchCities]);
+
   const filteredCities = useMemo(
     () =>
       citiesList.filter((c) =>
@@ -47,10 +51,6 @@ export const CitiesList = () => {
       ),
     [sortedCities, searchQuery],
   );
-
-  useEffect(() => {
-    fetchCities();
-  }, [fetchCities]);
 
   if (!searchedCities.length) return <div>No cities found.</div>;
 

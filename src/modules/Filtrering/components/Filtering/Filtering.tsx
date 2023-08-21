@@ -2,6 +2,7 @@ import { useBoundStore } from 'store';
 import { Filter } from '../Filter';
 import { Search } from '../Search';
 import { Sorting } from '../Sorting';
+import { TempScaleSelector } from '../TempScaleSelector';
 import classes from './Filtering.module.scss';
 
 export const Filtering = () => {
@@ -19,6 +20,7 @@ export const Filtering = () => {
       ))}
       <div className={classes.sort_and_temp}>
         <Sorting />
+        <TempScaleSelector />
       </div>
     </div>
   );
