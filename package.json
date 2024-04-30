@@ -14,6 +14,8 @@
     "web-vitals": "^2.1.0",
     "zustand": "^4.4.1"
   },
+  "type": "commonjs",
+  "main": "index.html",
   "devDependencies": {
     "@testing-library/jest-dom": "^6.0.1",
     "@testing-library/react": "^14.0.0",
