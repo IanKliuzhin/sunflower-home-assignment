@@ -3,18 +3,18 @@ import { Input } from './Input';
 import classes from './Search.module.scss';
 
 export const Search = () => {
-  const searchQuery = useBoundStore((state) => state.searchQuery);
-  const updateSearchQuery = useBoundStore((state) => state.updateSearchQuery);
+    const searchQuery = useBoundStore((state) => state.searchQuery);
+    const updateSearchQuery = useBoundStore((state) => state.updateSearchQuery);
 
-  return (
-    <div className={classes.search_container}>
-      Search
-      <Input
-        value={searchQuery}
-        onChange={(e) => updateSearchQuery(e.target.value)}
-        placeholder="Type to search"
-        clear={() => updateSearchQuery('')}
-      />
-    </div>
-  );
+    return (
+        <div className={classes.search_container}>
+            Search
+            <Input
+                value={searchQuery}
+                onChange={(e) => updateSearchQuery(e.target.value)}
+                placeholder="Type to search"
+                clear={() => updateSearchQuery('')}
+            />
+        </div>
+    );
 };
